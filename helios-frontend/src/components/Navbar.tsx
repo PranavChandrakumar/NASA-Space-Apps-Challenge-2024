@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const Navbar: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Navbar: React.FC = () => {
           <Link href='/'>Foo</Link>
           <Link href='/'>Bar</Link>
         </div>
+        <Button>Test</Button>
       </div>
     </nav>
   );
