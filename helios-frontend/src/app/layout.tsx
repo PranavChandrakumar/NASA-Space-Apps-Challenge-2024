@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
 
-import Navbar from "@components/Navbar";
-import Footer from "@components/Footer"
+import Navbar from '@components/Navbar';
+import Footer from '@components/Footer';
 
 export const metadata: Metadata = {
-  title: "Helios",
-  description: "Landsat SR app.",
+  title: 'Helios',
+  description: 'Landsat SR app.',
 };
 
 export default function RootLayout({
@@ -15,15 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
-        <div id="header">
+        <div id='header'>
           <Navbar />
         </div>
-        <main id="content">
-          {children}
-        </main>
-        <div id="footer">
+        <main id='content'>{children}</main>
+        <div id='footer'>
           <Footer />
         </div>
       </body>
