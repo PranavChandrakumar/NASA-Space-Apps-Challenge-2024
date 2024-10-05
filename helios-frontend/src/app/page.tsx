@@ -4,7 +4,7 @@ const TestMap = dynamic(() => import('@/components/TestMap'), { ssr: false });
 
 const Home = () => {
   return (
-    <div style={{ backgroundColor:'#1C1B29'}}>
+    <div>
       <TestMap />
     </div>
   );
