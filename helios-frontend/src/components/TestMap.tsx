@@ -10,7 +10,6 @@ const SimpleMap: React.FC = () => {
   const longitude = -0.09;
 
   return (
-    // Make sure you set the height and width of the map container otherwise the map won't show
     <MapContainer
       center={[latitude, longitude]}
       zoom={13}
