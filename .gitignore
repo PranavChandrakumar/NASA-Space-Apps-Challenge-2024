@@ -1,0 +1,50 @@
+# Ignore node modules and build directories
+node_modules/
+dist/
+build/
+.cache/
+
+# Firebase related
+firebase-debug.log
+firebase-debug.*
+.firebase/
+
+# Ignore environment variables
+.env
+.env.local
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# MacOS specific files
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE/Editor settings
+.vscode/
+.idea/
+
+# Ignore Firebase hosting cache and other temp files
+firebase.json
+.firebaserc
+hosting.cache
+
+# Ignore compiled JavaScript files
+*.js
+*.js.map
+*.d.ts
+
+# Ignore coverage reports
+coverage/
+*.lcov
+
+# Ignore lock files (optional, depending on team preference)
+package-lock.json
+yarn.lock
