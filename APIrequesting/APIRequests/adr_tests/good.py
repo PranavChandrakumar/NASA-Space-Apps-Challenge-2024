@@ -13,14 +13,21 @@ load_dotenv()
 user = os.getenv('NASA_USERNAME')
 password = os.getenv('NASA_PASSWORD')
 
+print(user, password)
+
 token_response = r.post(f'{api}login', auth=(user, password)).json()
 print(token_response)
+quit()
 
-# request products
-product_response = r.get(f'{api}product').json()
-print(f'AρρEEARS currently supports {len(product_response)} products.')
-products = {p['ProductAndVersion']: p for p in product_response}
-for product in products:
-    print(f'{product}: {products[product]["Description"]}')
-with open('APIrequesting/products.json', 'w') as f:
-    json.dump(product_response, f)
+
+token = token_response['token']
+print(token_response)
+
+headers = {
+    'Authorization': f'Bearer {token}',
+    'Content-Type': 'application/json'
+}
+products_response = r.get(f'{api}product', headers=headers).json()
+print(f'AρρEEARS currently supports {len(products_response)} products.')
+for product in products_response:
+    print(product['ProductAndVersion'])
