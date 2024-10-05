@@ -1,5 +1,11 @@
+import TestMap from '@/components/TestMap';
+
 const Home = () => {
-  return <div>Test</div>;
+  return (
+    <div>
+      <TestMap />
+    </div>
+  );
 };
 
 export default Home;
