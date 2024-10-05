@@ -1,10 +1,24 @@
 import requests as r
 import getpass
+from dotenv import load_dotenv  
+import os
+load_dotenv()
+user = os.getenv('NASA_USERNAME')
+password = os.getenv('NASA_PASSWORD')
 
 api = 'https://appeears.earthdatacloud.nasa.gov/api/'
-user = getpass.getpass(prompt='Enter NASA Earthdata Login Username: ')
-password = getpass.getpass(prompt='Enter NASA Earthdata Login Password: ')
+# user = getpass.getpass(prompt='Enter NASA Earthdata Login Username: ')
+# password = getpass.getpass(prompt='Enter NASA Earthdata Login Password: ')
 
-# Post the login request
+# get username and password from .env
+user = os.getenv('NASA_USERNAME')
+password = os.getenv('NASA_PASSWORD')
+
 token_response = r.post(f'{api}login', auth=(user, password)).json()
 print(token_response)
+
+# request products
+product_response = r.get(f'{api}product').json()
+print(f'AρρEEARS currently supports {len(product_response)} products.')
+products = {p['ProductAndVersion']: p for p in product_response}
+print(products)
