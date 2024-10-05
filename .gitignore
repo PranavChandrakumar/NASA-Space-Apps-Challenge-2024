@@ -53,4 +53,5 @@ APIrequesting/APIRequests/bin
 APIrequesting/APIRequests/include
 APIrequesting/APIRequests/lib
 APIrequesting/APIRequests/lib64
-
+APIrequesting/APIRequests/__pycache__/
+APIrequesting/APIRequests/passwordAndUsername.py
