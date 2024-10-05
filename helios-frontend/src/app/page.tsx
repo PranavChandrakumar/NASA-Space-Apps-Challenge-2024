@@ -1,11 +1,8 @@
-import Footer from '../component/Footer';
-
 const Home = () => {
   return (
-    <main>
+    <div>
       Test
-      <Footer />
-    </main>
+    </div>
   );
 }
 

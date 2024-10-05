@@ -19,7 +19,7 @@
     ],
     "paths": {
       "@app/*": ["./src/app/*"],
-      "@component/*": ["./src/component/*"],
+      "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
     }
   },

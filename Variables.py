@@ -1,1 +1,0 @@
-EarthRadius = 6371*1000
