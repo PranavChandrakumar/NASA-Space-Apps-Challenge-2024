@@ -13,8 +13,8 @@ params = {
             [-100.0, 40.0]
         ]]
     },
-    'startDate': '2020-01-01',
-    'endDate': '2020-12-31',
+    'startDate': '2024-01-01',
+    'endDate': '2024-03-01',
     'sampleType': 'area'
 }
 response = requests.post('https://appeears.earthdatacloud.nasa.gov/api/sample', json=params)
