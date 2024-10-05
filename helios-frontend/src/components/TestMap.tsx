@@ -15,7 +15,7 @@ const SimpleMap: React.FC = () => {
       center={[latitude, longitude]}
       zoom={13}
       ref={mapRef}
-      style={{ height: '85.1vh', width: '70vw' }}
+      style={{ height: '82.4vh', width: '70vw' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
