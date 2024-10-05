@@ -48,3 +48,9 @@ coverage/
 # Ignore lock files (optional, depending on team preference)
 package-lock.json
 yarn.lock
+
+APIrequesting/APIRequests/bin
+APIrequesting/APIRequests/include
+APIrequesting/APIRequests/lib
+APIrequesting/APIRequests/lib64
+
