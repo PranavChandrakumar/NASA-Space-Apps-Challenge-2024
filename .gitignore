@@ -37,7 +37,6 @@ firebase.json
 hosting.cache
 
 # Ignore compiled JavaScript files
-*.js
 *.js.map
 *.d.ts
 
