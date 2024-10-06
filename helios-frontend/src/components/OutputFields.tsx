@@ -20,11 +20,6 @@ const OutputFields: React.FC = () => {
     },
     { label: 'Image Quality Rating', value: '{RATING}', image: iCtwotone },
     { label: 'Surface Reflectance', value: '{REFLECTANCE}', image: gameIcon },
-    {
-      label: 'Surface Temperature',
-      value: '{TEMPERATURE} degrees C/F',
-      image: solarTemp,
-    },
   ]);
 
   const [startYear, setStartYear] = useState<number>(2010);
