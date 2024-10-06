@@ -8,18 +8,30 @@ task = {
     'params': {
          'dates': [
          {
-             'startDate': '01-01-2010',
-             'endDate': '01-31-2010'
+             'startDate': '01-01-2020',
+             'endDate': '01-31-2022'
          }],
          'layers': [
          {
-             'product': 'MOD11A1.061',
-             'layer': 'LST_Day_1km'
+             'product': 'L08.002',
+             'layer': 'SR_B1',
+             'product': 'L08.002',
+             'layer': 'SR_B2',
+             'product': 'L08.002',
+             'layer': 'SR_B3',
+             'product': 'L08.002',
+             'layer': 'SR_B4',
+             'product': 'L08.002',
+             'layer': 'SR_B5',
+             'product': 'L08.002',
+             'layer': 'SR_B6',
+             'product': 'L08.002',
+             'layer': 'SR_B7',
          }],
          'coordinates': [
          {
-             'latitude': 42,
-             'longitude': -72
+             'latitude': 43.580456,
+             'longitude': -79.653294
          }]
     }
 }
