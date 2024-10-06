@@ -56,8 +56,8 @@ const SimpleMap: React.FC = () => {
           mapRef.current = mapInstance;
         }}
         style={{
-          height: '87vh',
-          width: '67vw',
+          height: '85vh',
+          width: '65vw',
           borderRadius: '15px',
           borderWidth: '4px',
           borderColor: 'white',
