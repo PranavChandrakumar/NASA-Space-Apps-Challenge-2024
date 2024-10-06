@@ -1,11 +1,18 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { MapContainer, TileLayer, useMapEvent, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvent } from 'react-leaflet';
+import { Map as LeafletMap, Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+const pinIcon = new Icon({
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
+
 const SimpleMap: React.FC = () => {
-  const mapRef = useRef(null);
+  const mapRef = useRef<LeafletMap | null>(null);
   const initialLatitude = 51.505;
   const initialLongitude = -0.09;
   const [position, setPosition] = useState<{ lat: number, lng: number }>({ lat: initialLatitude, lng: initialLongitude });
@@ -23,14 +30,13 @@ const SimpleMap: React.FC = () => {
     const { name, value } = e.target;
     setPosition((prevPosition) => ({
       ...prevPosition,
-      [name]: parseFloat(value),
+      [name]: value === '' ? 0 : parseFloat(value),
     }));
   };
 
   useEffect(() => {
     if (mapRef.current) {
-      const map = mapRef.current;
-      map.setView([position.lat, position.lng], map.getZoom());
+      mapRef.current.setView([position.lat, position.lng], mapRef.current.getZoom());
     }
   }, [position]);
 
@@ -39,7 +45,7 @@ const SimpleMap: React.FC = () => {
       <MapContainer
         center={[initialLatitude, initialLongitude]}
         zoom={13}
-        ref={mapRef}
+        whenCreated={(mapInstance) => { mapRef.current = mapInstance; }}
         style={{ height: '82.4vh', width: '70vw' }}
       >
         <TileLayer
@@ -47,6 +53,7 @@ const SimpleMap: React.FC = () => {
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
         <LocationMarker />
+        <Marker position={[position.lat, position.lng]} icon={pinIcon} />
       </MapContainer>
       <div style={{ position: 'absolute', top: '10px', left: '50px', backgroundColor: 'white', padding: '5px', borderRadius: '5px', zIndex: 1000 }}>
         <label>
