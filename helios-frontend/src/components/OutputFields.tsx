@@ -46,10 +46,15 @@ const OutputFields: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)} 
           style={{ width: '200px', marginBottom: '10px', borderRadius: 8 }} 
         />
+        </div>
+      <div>
+      <a href="https://urs.earthdata.nasa.gov/" target="_blank" rel="noopener noreferrer" style={{ margin: '10px', padding: '10px', color: 'blue', textDecoration: 'underline' }}>
+        Make an EarthData account
+      </a>
+        <button onClick={handleButtonClick} style={{ margin: '10px', padding: '10px', borderRadius: 8, backgroundColor: '#F9C74F'}}>
+          Enter
+        </button>
       </div>
-      <button onClick={handleButtonClick} style={{ margin: '10px', padding: '10px', borderRadius: 8 }}>
-        Enter
-      </button>
       {outputs.map((output, index) => (
         <div
           key={index}
