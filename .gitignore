@@ -34,7 +34,6 @@ yarn-error.log*
 # Ignore Firebase hosting cache and other temp files
 hosting.cache
 functions/node_modules/
-functions/venv
 
 # Ignore compiled JavaScript files
 *.js.map
@@ -45,7 +44,6 @@ coverage/
 *.lcov
 
 # Ignore lock files (optional, depending on team preference)
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 .next

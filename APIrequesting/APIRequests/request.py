@@ -1,4 +1,3 @@
-import requests
 from dotenv import load_dotenv
 import os
 import requests as r
@@ -87,9 +86,11 @@ task = {
     }
 }
 
-# submit the task request
+print(token_response)
+quit()
+
 token = token_response['token']
-response = requests.post(
+response = r.post(
     'https://appeears.earthdatacloud.nasa.gov/api/task', 
     json=task, 
     headers={'Authorization': 'Bearer {0}'.format(token)})
@@ -97,7 +98,7 @@ task_response = response.json()
 task_id = task_response['task_id']
 print(task_response)
 
-response = requests.get(
+response = r.get(
     'https://appeears.earthdatacloud.nasa.gov/api/task/{0}'.format(task_id), 
     headers={'Authorization': 'Bearer {0}'.format(token)}
 )
