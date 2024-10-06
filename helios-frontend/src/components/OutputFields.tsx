@@ -10,7 +10,7 @@ import solarCloud from '../app/solar_clouds-bold.png';
 import solarTemp from '../app/solar_temperature-bold-duotone.png';
 
 const OutputFields: React.FC = () => {
-  const [outputs, setOutputs] = useState<{ label: string; value: string }[]>([
+  const [outputs, setOutputs] = useState<{ label: string; value: string; image: string }[]>([
     { label: 'Cloud Coverage', value: '', image: solarCloud },
     { label: 'Landsat 8 Next Overpass', value: '{DATETIME}', image: satellite },
     {
@@ -51,6 +51,12 @@ const OutputFields: React.FC = () => {
   const handleButtonClick = () => {
     console.log(`Username: ${username}`);
     console.log(`Password: ${password}`);
+    setOutputs(
+      outputs.map((output) => ({
+        ...output,
+        value: 'Updated Value', // Replace with the desired new value
+      }))
+    );
   };
 
   return (
