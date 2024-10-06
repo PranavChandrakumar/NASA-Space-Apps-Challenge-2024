@@ -7,7 +7,6 @@ import iCtwotone from '../app/ic_twotone-hd.png';
 import satellite1 from '../app/openmoji_satellite-1.png';
 import satellite from '../app/openmoji_satellite.png';
 import solarCloud from '../app/solar_clouds-bold.png';
-import solarTemp from '../app/solar_temperature-bold-duotone.png';
 
 const OutputFields: React.FC = () => {
   const [outputs, setOutputs] = useState<{ label: string; value: string; image: string }[]>([
@@ -72,9 +71,31 @@ const OutputFields: React.FC = () => {
     setOutputs(
       outputs.map((output) => ({
         ...output,
-        value: 'Updated Value', // Replace with the desired new value
+        value: 'processing...', // Replace with the desired new value
       }))
     );
+    setTimeout(() => {
+      setOutputs(
+        outputs.map((output) => {
+          switch (output.label) {
+            case 'Cloud Coverage':
+              return { ...output, value: 'Updated Coverage' };
+            case 'Landsat 8 Next Overpass':
+              return { ...output, value: 'Thursday, Oct 17, 2024' };
+            case 'Landsat 9 Next Overpass':
+              return { ...output, value: 'Wednesday, Oct 9, 2024' };
+            case 'Image Quality Rating':
+              return { ...output, value: '22280' };
+            case 'Surface Reflectance':
+              return { ...output, value: '0.9759' };
+            case 'Surface Temperature':
+              return { ...output, value: 'Updated Temperature' };
+            default:
+              return output;
+          }
+        })
+      );
+    }, 1000)
   };
 
   return (
