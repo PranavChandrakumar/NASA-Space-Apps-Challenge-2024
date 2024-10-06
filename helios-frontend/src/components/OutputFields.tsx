@@ -35,7 +35,7 @@ const OutputFields: React.FC = () => {
           type="text" 
           value={username} 
           onChange={(e) => setUsername(e.target.value)} 
-          style={{ width: '200px', marginBottom: '10px', borderRadius: 8 }} 
+          style={{ width: '200px', marginBottom: '10px', borderRadius: 8, backgroundColor: "#f0f0f0" }} 
         />
       </div>
       <div style={{ margin: '10px', padding: '10px', border: '1px solid black', width: '30vw', textAlign: 'center' }}>
@@ -44,7 +44,7 @@ const OutputFields: React.FC = () => {
           type="password" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
-          style={{ width: '200px', marginBottom: '10px', borderRadius: 8 }} 
+          style={{ width: '200px', marginBottom: '10px', borderRadius: 8, backgroundColor: "#f0f0f0" }} 
         />
         </div>
       <div>
