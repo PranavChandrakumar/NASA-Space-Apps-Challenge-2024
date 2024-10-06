@@ -7,18 +7,19 @@ import iCtwotone from '../app/ic_twotone-hd.png';
 import satellite1 from '../app/openmoji_satellite-1.png';
 import satellite from '../app/openmoji_satellite.png';
 import solarCloud from '../app/solar_clouds-bold.png';
+import solarTemp from '../app/solar_temperature-bold-duotone.png';
 
 const OutputFields: React.FC = () => {
   const [outputs, setOutputs] = useState<{ label: string; value: string; image: string }[]>([
     { label: 'Cloud Coverage', value: '', image: solarCloud },
-    { label: 'Landsat 8 Next Overpass', value: '{DATETIME}', image: satellite },
+    { label: 'Landsat 8 Next Overpass', value: '---', image: satellite },
     {
       label: 'Landsat 9 Next Overpass',
-      value: '{DATETIME}',
+      value: '---',
       image: satellite1,
     },
-    { label: 'Image Quality Rating', value: '{RATING}', image: iCtwotone },
-    { label: 'Surface Reflectance', value: '{REFLECTANCE}', image: gameIcon },
+    { label: 'Surface Reflectance', value: '---', image: gameIcon },
+    { label: 'Surface IR', value: '---', image: solarTemp },
   ]);
 
   const [startYear, setStartYear] = useState<number>(2010);
@@ -87,9 +88,9 @@ const OutputFields: React.FC = () => {
             case 'Image Quality Rating':
               return { ...output, value: '22280' };
             case 'Surface Reflectance':
-              return { ...output, value: '0.9759' };
-            case 'Surface Temperature':
-              return { ...output, value: 'Updated Temperature' };
+              return { ...output, value: '0.581R, 0.577G, 0.633B' };
+            case 'Surface IR':
+              return { ...output, value: '0.4703, 0.3568' };
             default:
               return output;
           }
