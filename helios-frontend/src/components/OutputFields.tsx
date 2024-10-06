@@ -27,6 +27,29 @@ const OutputFields: React.FC = () => {
     },
   ]);
 
+  const [startYear, setStartYear] = useState<number>(2010);
+  const [startMonth, setStartMonth] = useState<string>('May');
+  const [startDay, setStartDay] = useState<number>(17);
+  const [endYear, setEndYear] = useState<number>(2014);
+  const [endMonth, setEndMonth] = useState<string>('May');
+  const [endDay, setEndDay] = useState<number>(17);
+
+  const calculateDateDifference = (): number => {
+    const startDate = new Date(
+      startYear,
+      new Date(`${startMonth} 1`).getMonth(),
+      startDay
+    );
+    const endDate = new Date(
+      endYear,
+      new Date(`${endMonth} 1`).getMonth(),
+      endDay
+    );
+    const timeDifference = endDate.getTime() - startDate.getTime();
+    const yearsDifference = timeDifference / (1000 * 3600 * 24 * 365.25);
+    return Math.floor(yearsDifference);
+  };
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -69,6 +92,7 @@ const OutputFields: React.FC = () => {
         height: '85vh',
         flex: '1',
         padding: '0px 15px',
+        overflowY: 'auto',
       }}
     >
       <div>
@@ -204,7 +228,6 @@ const OutputFields: React.FC = () => {
             style={{ width: '40px', height: '40px', marginRight: '10px' }}
           />
 
-          {/* Divs for label and value */}
           <div
             style={{
               display: 'flex',
@@ -250,6 +273,190 @@ const OutputFields: React.FC = () => {
           </div>
         </div>
       ))}
+      <div>
+        <div>
+          <div
+            style={{
+              fontWeight: '600',
+              color: '#D9D9D9',
+              marginBottom: '5px',
+            }}
+          >
+            Retroactive Data Collection (Default)
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignContent: 'center',
+              alignItems: 'center',
+              padding: '10px 0px',
+            }}
+          >
+            <div>
+              <input
+                type='checkbox'
+                style={{
+                  width: '25px',
+                  height: '25px',
+                  marginRight: '10px',
+                }}
+              />
+            </div>
+            <div style={{ lineHeight: '1', color: '#fff' }}>
+              Future Data Collection
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            style={{
+              marginBottom: '10px',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}
+          >
+            Select a time frame:
+          </div>
+
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
+          >
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <input
+                type='number'
+                value={startYear}
+                onChange={(e) => setStartYear(Number(e.target.value))}
+                style={{ width: '80px', padding: '10px', textAlign: 'center' }}
+                placeholder='Year'
+              />
+              <select
+                value={startMonth}
+                onChange={(e) => setStartMonth(e.target.value)}
+                style={{ width: '100px', padding: '10px' }}
+              >
+                {[
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'August',
+                  'September',
+                  'October',
+                  'November',
+                  'December',
+                ].map((month) => (
+                  <option key={month} value={month}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+              <input
+                type='number'
+                value={startDay}
+                onChange={(e) => setStartDay(Number(e.target.value))}
+                style={{ width: '50px', padding: '10px', textAlign: 'center' }}
+                placeholder='Day'
+              />
+            </div>
+            <div style={{ color: '#fff' }}>TO</div>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <input
+                type='number'
+                value={endYear}
+                onChange={(e) => setEndYear(Number(e.target.value))}
+                style={{ width: '80px', padding: '10px', textAlign: 'center' }}
+                placeholder='Year'
+              />
+              <select
+                value={endMonth}
+                onChange={(e) => setEndMonth(e.target.value)}
+                style={{ width: '100px', padding: '10px' }}
+              >
+                {[
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'August',
+                  'September',
+                  'October',
+                  'November',
+                  'December',
+                ].map((month) => (
+                  <option key={month} value={month}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+              <input
+                type='number'
+                value={endDay}
+                onChange={(e) => setEndDay(Number(e.target.value))}
+                style={{ width: '50px', padding: '10px', textAlign: 'center' }}
+                placeholder='Day'
+              />
+            </div>
+          </div>
+          <div style={{ marginTop: '10px', fontSize: '10px', color: '#fff' }}>
+            You are requesting data for:{' '}
+            <strong>{calculateDateDifference()} Years</strong>
+          </div>
+        </div>
+        <div>
+          <div style={{ fontWeight: 'bold', color: '#fff', marginTop: '10px' }}>
+            For Future Data Collection Select The Location On the Map & Press
+            Set Location
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignContent: 'center',
+              alignItems: 'center',
+              padding: '10px 0px',
+              gap: '15px',
+              width: '100%',
+            }}
+          >
+            <label
+              style={{
+                color: '#EDE9D5',
+                fontWeight: 'bold',
+              }}
+            >
+              Set Email:
+            </label>
+            <input
+              type='email'
+              style={{
+                flex: '1',
+                padding: '10px 20px',
+                borderRadius: 8,
+                border: '2px solid #EDE9D5',
+                backgroundColor: 'transparent',
+                marginLeft: 10,
+                color: '#fff',
+              }}
+            />
+          </div>
+          <button
+            onClick={handleButtonClick}
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: 8,
+              backgroundColor: '#F9C74F',
+            }}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
