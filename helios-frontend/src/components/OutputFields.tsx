@@ -95,7 +95,7 @@ const OutputFields: React.FC = () => {
           }
         })
       );
-    }, 1000)
+    }, 240000)
   };
 
   return (
