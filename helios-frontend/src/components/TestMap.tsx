@@ -1,14 +1,14 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import { MapContainer, TileLayer, useMapEvent } from 'react-leaflet';
+import React, { useRef, useState, useEffect } from 'react';
+import { MapContainer, TileLayer, useMapEvent, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const SimpleMap: React.FC = () => {
   const mapRef = useRef(null);
-  const latitude = 51.505;
-  const longitude = -0.09;
-  const [position, setPosition] = useState<{ lat: number, lng: number } | null>(null);
+  const initialLatitude = 51.505;
+  const initialLongitude = -0.09;
+  const [position, setPosition] = useState<{ lat: number, lng: number }>({ lat: initialLatitude, lng: initialLongitude });
 
   const LocationMarker = () => {
     useMapEvent('click', (e) => {
@@ -19,10 +19,25 @@ const SimpleMap: React.FC = () => {
     return null;
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setPosition((prevPosition) => ({
+      ...prevPosition,
+      [name]: parseFloat(value),
+    }));
+  };
+
+  useEffect(() => {
+    if (mapRef.current) {
+      const map = mapRef.current;
+      map.setView([position.lat, position.lng], map.getZoom());
+    }
+  }, [position]);
+
   return (
     <div style={{ position: 'relative' }}>
       <MapContainer
-        center={[latitude, longitude]}
+        center={[initialLatitude, initialLongitude]}
         zoom={13}
         ref={mapRef}
         style={{ height: '82.4vh', width: '70vw' }}
@@ -32,13 +47,30 @@ const SimpleMap: React.FC = () => {
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
         <LocationMarker />
-        {position && (
-          <div style={{ position: 'absolute', top: '10px', left: '50px', backgroundColor: 'white', padding: '5px', borderRadius: '5px', zIndex: 1000 }}>
-            <p>Latitude: {position.lat}</p>
-            <p>Longitude: {position.lng}</p>
-          </div>
-        )}
       </MapContainer>
+      <div style={{ position: 'absolute', top: '10px', left: '50px', backgroundColor: 'white', padding: '5px', borderRadius: '5px', zIndex: 1000 }}>
+        <label>
+          Latitude:
+          <input
+            type="number"
+            name="lat"
+            value={position.lat}
+            onChange={handleInputChange}
+            style={{ marginLeft: '5px' }}
+          />
+        </label>
+        <br />
+        <label>
+          Longitude:
+          <input
+            type="number"
+            name="lng"
+            value={position.lng}
+            onChange={handleInputChange}
+            style={{ marginLeft: '5px' }}
+          />
+        </label>
+      </div>
     </div>
   );
 };
