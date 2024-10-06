@@ -15,8 +15,8 @@ task = {
     'params': {
         "dates": [
             {
-                "endDate": "01-31-2022",
-                "startDate": "01-01-2020"
+                "endDate": "10-06-2024",
+                "startDate": "01-01-2013"
             }
         ],
         "layers": [
