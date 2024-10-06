@@ -35,6 +35,7 @@ yarn-error.log*
 firebase.json
 .firebaserc
 hosting.cache
+functions/
 
 # Ignore compiled JavaScript files
 *.js.map
