@@ -15,12 +15,14 @@ const OutputFields: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const cloudCoverageOptions = ['No Preference', 'Low Coverage', 'Up to Medium Coverage', 'All Coverage Data'];
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = event.target.value;
     setOutputs(
       outputs.map((output) =>
         output.label === 'Cloud Coverage'
-          ? { ...output, value: `${newValue}%` }
+          ? { ...output, value: newValue }
           : output
       )
     );
@@ -80,6 +82,7 @@ const OutputFields: React.FC = () => {
             marginBottom: '10px',
             borderRadius: 8,
             backgroundColor: '#f0f0f0',
+            marginLeft: 10,
           }}
         />
       </div>
@@ -102,6 +105,7 @@ const OutputFields: React.FC = () => {
             marginBottom: '10px',
             borderRadius: 8,
             backgroundColor: '#f0f0f0',
+            marginLeft: 10
           }}
         />
       </div>
@@ -145,18 +149,23 @@ const OutputFields: React.FC = () => {
           {output.label === 'Cloud Coverage' ? (
             <>
               {output.label}:{' '}
-              <input
-                type='text'
-                value={output.value.replace('%', '')}
+              <select
+                value={output.value}
                 onChange={handleInputChange}
                 style={{
-                  width: '40px',
+                  width: '200px',
                   textAlign: 'right',
                   backgroundColor: '#f0f0f0',
                   borderRadius: 8,
+                  marginLeft: 10,
                 }}
-              />
-              %
+              >
+                {cloudCoverageOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
             </>
           ) : (
             `${output.label}: ${output.value}`
