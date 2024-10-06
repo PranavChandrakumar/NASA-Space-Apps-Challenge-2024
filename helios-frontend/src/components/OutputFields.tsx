@@ -12,6 +12,9 @@ const OutputFields: React.FC = () => {
     { label: 'Surface Temperature', value: '{TEMPERATURE} degrees C/F' },
   ]);
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setOutputs(outputs.map(output => 
@@ -19,8 +22,34 @@ const OutputFields: React.FC = () => {
     ));
   };
 
+  const handleButtonClick = () => {
+    console.log(`Username: ${username}`);
+    console.log(`Password: ${password}`);
+  };
+
   return (
     <div style={{ borderWidth: 1, borderColor: 'black', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ margin: '10px', padding: '10px', border: '1px solid black', width: '30vw', textAlign: 'center' }}>
+        <label>EarthData Username: </label>
+        <input 
+          type="text" 
+          value={username} 
+          onChange={(e) => setUsername(e.target.value)} 
+          style={{ width: '200px', marginBottom: '10px', borderRadius: 8 }} 
+        />
+      </div>
+      <div style={{ margin: '10px', padding: '10px', border: '1px solid black', width: '30vw', textAlign: 'center' }}>
+        <label>EarthData Password: </label>
+        <input 
+          type="password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+          style={{ width: '200px', marginBottom: '10px', borderRadius: 8 }} 
+        />
+      </div>
+      <button onClick={handleButtonClick} style={{ margin: '10px', padding: '10px', borderRadius: 8 }}>
+        Enter
+      </button>
       {outputs.map((output, index) => (
         <div
           key={index}
