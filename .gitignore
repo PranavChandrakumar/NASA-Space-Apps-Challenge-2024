@@ -55,3 +55,6 @@ APIrequesting/APIRequests/lib
 APIrequesting/APIRequests/lib64
 APIrequesting/APIRequests/__pycache__/
 APIrequesting/APIRequests/passwordAndUsername.py
+
+# python env stuff
+env
