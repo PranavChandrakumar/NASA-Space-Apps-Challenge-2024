@@ -6,7 +6,8 @@ import { Map as LeafletMap, Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const pinIcon = new Icon({
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  iconUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
 });
@@ -15,7 +16,10 @@ const SimpleMap: React.FC = () => {
   const mapRef = useRef<LeafletMap | null>(null);
   const initialLatitude = 51.505;
   const initialLongitude = -0.09;
-  const [position, setPosition] = useState<{ lat: number, lng: number }>({ lat: initialLatitude, lng: initialLongitude });
+  const [position, setPosition] = useState<{ lat: number; lng: number }>({
+    lat: initialLatitude,
+    lng: initialLongitude,
+  });
 
   const LocationMarker = () => {
     useMapEvent('click', (e) => {
@@ -36,7 +40,10 @@ const SimpleMap: React.FC = () => {
 
   useEffect(() => {
     if (mapRef.current) {
-      mapRef.current.setView([position.lat, position.lng], mapRef.current.getZoom());
+      mapRef.current.setView(
+        [position.lat, position.lng],
+        mapRef.current.getZoom()
+      );
     }
   }, [position]);
 
@@ -45,8 +52,16 @@ const SimpleMap: React.FC = () => {
       <MapContainer
         center={[initialLatitude, initialLongitude]}
         zoom={13}
-        whenCreated={(mapInstance) => { mapRef.current = mapInstance; }}
-        style={{ height: '82.4vh', width: '70vw' }}
+        whenCreated={(mapInstance) => {
+          mapRef.current = mapInstance;
+        }}
+        style={{
+          height: '82.4vh',
+          width: '65vw',
+          borderRadius: '15px',
+          borderWidth: '4px',
+          borderColor: 'white',
+        }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -55,12 +70,22 @@ const SimpleMap: React.FC = () => {
         <LocationMarker />
         <Marker position={[position.lat, position.lng]} icon={pinIcon} />
       </MapContainer>
-      <div style={{ position: 'absolute', top: '10px', left: '50px', backgroundColor: 'white', padding: '5px', borderRadius: '5px', zIndex: 1000 }}>
+      <div
+        style={{
+          position: 'absolute',
+          top: '15px',
+          left: '50px',
+          backgroundColor: 'white',
+          padding: '5px',
+          borderRadius: '5px',
+          zIndex: 1000,
+        }}
+      >
         <label>
           Latitude:
           <input
-            type="number"
-            name="lat"
+            type='number'
+            name='lat'
             value={position.lat}
             onChange={handleInputChange}
             style={{ marginLeft: '5px' }}
@@ -70,8 +95,8 @@ const SimpleMap: React.FC = () => {
         <label>
           Longitude:
           <input
-            type="number"
-            name="lng"
+            type='number'
+            name='lng'
             value={position.lng}
             onChange={handleInputChange}
             style={{ marginLeft: '5px' }}

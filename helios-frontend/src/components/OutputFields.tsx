@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 const OutputFields: React.FC = () => {
-  const [outputs, setOutputs] = useState<{ label: string, value: string }[]>([
+  const [outputs, setOutputs] = useState<{ label: string; value: string }[]>([
     { label: 'Cloud Coverage', value: '' },
     { label: 'Landsat 8 Next Overpass', value: '{DATETIME}' },
     { label: 'Landsat 9 Next Overpass', value: '{DATETIME}' },
@@ -17,9 +17,13 @@ const OutputFields: React.FC = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
-    setOutputs(outputs.map(output => 
-      output.label === 'Cloud Coverage' ? { ...output, value: `${newValue}%` } : output
-    ));
+    setOutputs(
+      outputs.map((output) =>
+        output.label === 'Cloud Coverage'
+          ? { ...output, value: `${newValue}%` }
+          : output
+      )
+    );
   };
 
   const handleButtonClick = () => {
@@ -28,30 +32,102 @@ const OutputFields: React.FC = () => {
   };
 
   return (
-    <div style={{ borderWidth: 1, borderColor: 'black', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ margin: '10px', padding: '10px', border: '1px solid black', width: '30vw', textAlign: 'center' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'start',
+        alignItems: 'start',
+      }}
+    >
+      <div>
+        <div
+          style={{
+            fontSize: '3em',
+            fontWeight: 'bold',
+            textAlign: 'start',
+            color: '#EDE9D5',
+            lineHeight: '1',
+          }}
+        >
+          Helios.
+        </div>
+        <div
+          style={{
+            color: '#6D6875',
+            fontWeight: '500',
+          }}
+        >
+          want to detect surface reflections?
+        </div>
+      </div>
+      <div
+        style={{
+          margin: '10px',
+          padding: '10px',
+          border: '1px solid black',
+          width: '30vw',
+          textAlign: 'center',
+        }}
+      >
         <label>EarthData Username: </label>
-        <input 
-          type="text" 
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)} 
-          style={{ width: '200px', marginBottom: '10px', borderRadius: 8, backgroundColor: "#f0f0f0" }} 
+        <input
+          type='text'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          style={{
+            width: '200px',
+            marginBottom: '10px',
+            borderRadius: 8,
+            backgroundColor: '#f0f0f0',
+          }}
         />
       </div>
-      <div style={{ margin: '10px', padding: '10px', border: '1px solid black', width: '30vw', textAlign: 'center' }}>
+      <div
+        style={{
+          margin: '10px',
+          padding: '10px',
+          border: '1px solid black',
+          width: '30vw',
+          textAlign: 'center',
+        }}
+      >
         <label>EarthData Password: </label>
-        <input 
-          type="password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          style={{ width: '200px', marginBottom: '10px', borderRadius: 8, backgroundColor: "#f0f0f0" }} 
+        <input
+          type='password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={{
+            width: '200px',
+            marginBottom: '10px',
+            borderRadius: 8,
+            backgroundColor: '#f0f0f0',
+          }}
         />
-        </div>
+      </div>
       <div>
-      <a href="https://urs.earthdata.nasa.gov/" target="_blank" rel="noopener noreferrer" style={{ margin: '10px', padding: '10px', color: 'blue', textDecoration: 'underline' }}>
-        Make an EarthData account
-      </a>
-        <button onClick={handleButtonClick} style={{ margin: '10px', padding: '10px', borderRadius: 8, backgroundColor: '#F9C74F'}}>
+        <a
+          href='https://urs.earthdata.nasa.gov/'
+          target='_blank'
+          rel='noopener noreferrer'
+          style={{
+            margin: '10px',
+            padding: '10px',
+            color: 'blue',
+            textDecoration: 'underline',
+          }}
+        >
+          Make an EarthData account
+        </a>
+        <button
+          onClick={handleButtonClick}
+          style={{
+            margin: '10px',
+            padding: '10px',
+            borderRadius: 8,
+            backgroundColor: '#F9C74F',
+          }}
+        >
           Enter
         </button>
       </div>
@@ -63,12 +139,24 @@ const OutputFields: React.FC = () => {
             padding: '10px',
             border: '1px solid black',
             width: '30vw',
-            textAlign: 'center'
+            textAlign: 'center',
           }}
         >
           {output.label === 'Cloud Coverage' ? (
             <>
-              {output.label}: <input type="text" value={output.value.replace('%', '')} onChange={handleInputChange} style={{ width: '40px', textAlign: 'right', backgroundColor: '#f0f0f0', borderRadius: 8}} />%
+              {output.label}:{' '}
+              <input
+                type='text'
+                value={output.value.replace('%', '')}
+                onChange={handleInputChange}
+                style={{
+                  width: '40px',
+                  textAlign: 'right',
+                  backgroundColor: '#f0f0f0',
+                  borderRadius: 8,
+                }}
+              />
+              %
             </>
           ) : (
             `${output.label}: ${output.value}`
