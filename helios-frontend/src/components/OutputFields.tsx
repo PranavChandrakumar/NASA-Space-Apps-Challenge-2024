@@ -38,6 +38,9 @@ const OutputFields: React.FC = () => {
         flexDirection: 'column',
         alignContent: 'start',
         alignItems: 'start',
+        height: '85vh',
+        flex: '1',
+        padding: '0px 15px',
       }}
     >
       <div>
@@ -63,21 +66,29 @@ const OutputFields: React.FC = () => {
       </div>
       <div
         style={{
-          margin: '10px',
-          padding: '10px',
-          border: '1px solid black',
-          width: '30vw',
-          textAlign: 'center',
+          display: 'flex',
+          alignContent: 'center',
+          alignItems: 'center',
+          padding: '10px 0px',
+          gap: '15px',
+          width: '100%',
         }}
       >
-        <label>EarthData Username: </label>
+        <label
+          style={{
+            color: '#EDE9D5',
+            fontWeight: 'bold',
+          }}
+        >
+          EarthData Username:{' '}
+        </label>
         <input
           type='text'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           style={{
-            width: '200px',
-            marginBottom: '10px',
+            flex: '1',
+            padding: '10px 20px',
             borderRadius: 8,
             backgroundColor: '#f0f0f0',
           }}
@@ -85,35 +96,49 @@ const OutputFields: React.FC = () => {
       </div>
       <div
         style={{
-          margin: '10px',
-          padding: '10px',
-          border: '1px solid black',
-          width: '30vw',
-          textAlign: 'center',
+          display: 'flex',
+          alignContent: 'center',
+          alignItems: 'center',
+          padding: '10px 0px',
+          gap: '15px',
+          width: '100%',
         }}
       >
-        <label>EarthData Password: </label>
+        <label
+          style={{
+            color: '#EDE9D5',
+            fontWeight: 'bold',
+          }}
+        >
+          EarthData Password:{' '}
+        </label>
         <input
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           style={{
-            width: '200px',
-            marginBottom: '10px',
+            flex: '1',
+            padding: '10px 20px',
             borderRadius: 8,
             backgroundColor: '#f0f0f0',
           }}
         />
       </div>
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+          alignContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <a
           href='https://urs.earthdata.nasa.gov/'
           target='_blank'
           rel='noopener noreferrer'
           style={{
-            margin: '10px',
-            padding: '10px',
-            color: 'blue',
+            color: 'white',
             textDecoration: 'underline',
           }}
         >
@@ -122,6 +147,7 @@ const OutputFields: React.FC = () => {
         <button
           onClick={handleButtonClick}
           style={{
+            width: '100px',
             margin: '10px',
             padding: '10px',
             borderRadius: 8,
@@ -132,16 +158,7 @@ const OutputFields: React.FC = () => {
         </button>
       </div>
       {outputs.map((output, index) => (
-        <div
-          key={index}
-          style={{
-            margin: '10px',
-            padding: '10px',
-            border: '1px solid black',
-            width: '30vw',
-            textAlign: 'center',
-          }}
-        >
+        <div key={index} style={{}}>
           {output.label === 'Cloud Coverage' ? (
             <>
               {output.label}:{' '}
