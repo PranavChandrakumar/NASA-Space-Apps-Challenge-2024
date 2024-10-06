@@ -30,8 +30,8 @@ task = {
          }],
          'coordinates': [
          {
-             'latitude': 43.580456,
-             'longitude': -79.653294
+             'latitude': 43.58045658045632,
+             'longitude': -79.65329465329421
          }]
     }
 }
