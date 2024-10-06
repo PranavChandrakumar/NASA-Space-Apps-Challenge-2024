@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 
 const OutputFields: React.FC = () => {
   const [outputs, setOutputs] = useState<{ label: string, value: string }[]>([
-    { label: 'Longitude', value: '{LONG}' },
-    { label: 'Latitude', value: '{LAT}' },
     { label: 'Cloud Coverage', value: '{VALUE}%' },
     { label: 'Landsat 8 Next Overpass', value: '{DATETIME}' },
     { label: 'Landsat 9 Next Overpass', value: '{DATETIME}' },
