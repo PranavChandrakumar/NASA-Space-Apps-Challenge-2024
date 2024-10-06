@@ -32,12 +32,11 @@ yarn-error.log*
 .idea/
 
 # Ignore Firebase hosting cache and other temp files
-firebase.json
-.firebaserc
 hosting.cache
+functions/node_modules/
+functions/venv
 
 # Ignore compiled JavaScript files
-*.js
 *.js.map
 *.d.ts
 
@@ -48,6 +47,8 @@ coverage/
 # Ignore lock files (optional, depending on team preference)
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
+.next
 
 APIrequesting/APIRequests/bin
 APIrequesting/APIRequests/include
