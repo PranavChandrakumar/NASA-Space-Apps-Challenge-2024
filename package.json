@@ -1,0 +1,8 @@
+{
+	"devDependencies": {
+		"@types/cors": "2.8.17"
+	},
+	"dependencies": {
+		"@google-cloud/functions-framework": "^3.4.2"
+	}
+}
