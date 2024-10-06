@@ -48,6 +48,8 @@ coverage/
 # Ignore lock files (optional, depending on team preference)
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
+.next
 
 APIrequesting/APIRequests/bin
 APIrequesting/APIRequests/include
