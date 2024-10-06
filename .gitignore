@@ -32,8 +32,6 @@ yarn-error.log*
 .idea/
 
 # Ignore Firebase hosting cache and other temp files
-firebase.json
-.firebaserc
 hosting.cache
 functions/node_modules/
 functions/venv
