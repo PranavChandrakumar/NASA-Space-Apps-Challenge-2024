@@ -1,8 +1,8 @@
-import * as functions from 'firebase-functions';
+import * as functions from "firebase-functions";
 
-export const dailyFunction = functions.pubsub.schedule('0 21 * * *')
-    .timeZone('UTC') // time zone
-    .onRun((context) => {
-        console.log('This will be run every day at 9 PM!');
-        return 10;
-    });
+export const checkPassover = functions.pubsub.schedule("0 21 * * *")
+  .timeZone("UTC")
+  .onRun((context) => {
+    console.log("Passover check");
+    return 10;
+  });
