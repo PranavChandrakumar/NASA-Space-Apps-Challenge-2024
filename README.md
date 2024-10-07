@@ -6,10 +6,10 @@ This project was developed as part of the 2024 NASA Space Apps Challenge, tackli
 ## Objective
 The application provides users with the ability to:
 
-- Define a target location (via map selection or latitude/longitude).
+- Define a target location (via map selection or manual input of latitude/longitude).
 - Receive alerts about upcoming Landsat overpasses for that location.
 - Access, display, and analyze corresponding Landsat SR data.
-- Compare satellite observations with ground-based spectral measurements.
+- Compare satellite observations with ground-based surface spectral measurements.
 - This tool is designed to support experiential learning, empower citizen scientists, and promote Earth observation studies by making Landsat data more accessible and user-friendly.
 
 ## Features
