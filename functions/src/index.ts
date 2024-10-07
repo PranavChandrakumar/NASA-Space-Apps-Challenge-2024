@@ -1,11 +1,36 @@
 import * as functions from "firebase-functions";
 import axios from "axios";
 import * as dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 const api = "https://appeears.earthdatacloud.nasa.gov/api/";
 const user = process.env.USER;
 const password = process.env.PASSWORD;
+
+const options: cors.CorsOptions = {
+  origin: ["http://localhost:3000"],
+}
+
+export const testHttpFunction = functions
+  .https.onRequest((request: functions.https.Request, response: any): void => {
+    cors(options)(request, response, async () => {
+      // we anticipatee the request to contain a username and a password cleartext
+      try {
+        const {username, password} = request.body;
+        if (!username || !password) {
+          response.status(400).send("Missing username or password");
+          return;
+        }
+
+        // just return the username and password as a response
+        response.status(200).send({username, password});
+      } catch (error) {
+        console.error("Error in testHttpFunction:", error);
+        response.status(500).send("Internal server error");
+      }
+    });
+  });
 
 export const fetchLandsatData = functions.pubsub.schedule("0 21 * * *")
   .timeZone("UTC")
@@ -65,3 +90,5 @@ export const fetchLandsatData = functions.pubsub.schedule("0 21 * * *")
       throw new Error("Failed to fetch Landsat data");
     }
   });
+
+
