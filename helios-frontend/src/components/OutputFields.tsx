@@ -72,7 +72,7 @@ const OutputFields: React.FC = () => {
     setOutputs(
       outputs.map((output) => ({
         ...output,
-        value: 'processing...', // Replace with the desired new value
+        value: 'processing...',
       }))
     );
     setTimeout(() => {
@@ -96,7 +96,7 @@ const OutputFields: React.FC = () => {
           }
         })
       );
-    }, 240000)
+    }, 10000)
   };
 
   return (
