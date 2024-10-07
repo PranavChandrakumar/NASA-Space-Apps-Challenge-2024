@@ -4,8 +4,8 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 const api = "https://appeears.earthdatacloud.nasa.gov/api/";
-const user = "helios_maplenauts";
-const password = "NASASpaceApp2024!";
+const user = process.env.USER;
+const password = process.env.PASSWORD;
 
 export const fetchLandsatData = functions.pubsub.schedule("0 21 * * *")
   .timeZone("UTC")
