@@ -1,5 +1,7 @@
 **Authors**: Andrew De Rango | Hashim Bukhtiar | Hashir Imam | Marco Tan | Pranav Chandrakumar | Rafael Toameh
 
+# HELIOS
+
 ## About HELIOS: the High-resolution Earth Light and Infrared Observation System.
 This project was developed as part of the 2024 NASA Space Apps Challenge, tackling the challenge of integrating Landsat Surface Reflectance (SR) data with ground-based spectral measurements. The goal is to create a web-based application that allows users to define a target location, receive notifications when a Landsat satellite will pass over, and access the corresponding SR data, simplifying a previously labor-intensive task.
 
