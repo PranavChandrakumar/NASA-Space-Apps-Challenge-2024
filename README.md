@@ -3,7 +3,7 @@
 # HELIOS
 
 ## About HELIOS: the High-resolution Earth Light and Infrared Observation System.
-This project was developed as part of the 2024 NASA Space Apps Challenge, tackling the challenge of integrating Landsat Surface Reflectance (SR) data with ground-based spectral measurements. The goal is to create a web-based application that allows users to define a target location, receive notifications when a Landsat satellite will pass over, and access the corresponding SR data, simplifying a previously labor-intensive task.
+This project was developed as part of the 2024 NASA Space Apps Challenge, tackling the challenge of integrating Landsat Surface Reflectance (SR) data with ground-based spectral measurements. The goal is to create a web-based application that allows users to define a target location, receive notifications when a Landsat satellite will pass over, and access the corresponding SR data, simplifying a previously labor-intensive task. Visit our team page on the website [here](https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/maplenauts/?tab=project)!
 
 ## Objective
 The application provides users with the ability to:
@@ -22,8 +22,8 @@ The application provides users with the ability to:
 - Data Export: Download the data in a useful format like CSV for further analysis.
 
 ## Use Cases
-Educational Tool: Promotes learning through the comparison of satellite and ground-based data, helping students and researchers connect landscape observations with real-world satellite measurements.
-Research and Validation: Assists scientists and land managers in validating satellite data with ground reference measurements to ensure data accuracy.
+- Educational Tool: Promotes learning through the comparison of satellite and ground-based data, helping students and researchers connect landscape observations with real-world satellite measurements.
+- Research and Validation: Assists scientists and land managers in validating satellite data with ground reference measurements to ensure data accuracy.
 
 ## Getting Started
 First, run the development server:
